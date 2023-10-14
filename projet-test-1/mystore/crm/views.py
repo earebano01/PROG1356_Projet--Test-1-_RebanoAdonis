@@ -3,19 +3,20 @@ from django.http import HttpResponse
 from .models import *
 
 def home(request):
-    orders = Order.objects.all()
-    customers = Customer.objects.all()
+    # orders = Order.objects.all()
+    # customers = Customer.objects.all()
 
-    total_customers = Customer.objects.all()
+    # total_customers = Customer.objects.all()
 
-    total_orders = orders.count()
-    delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
+    # total_orders = orders.count()
+    # delivered = orders.filter(status='Livrée').count()
+    # pending = orders.filter(status='En attente').count()
 
-    context = {'orders':orders, 'customer':customers, 'total_orders':total_orders,
-               'delivered':delivered, 'pending':pending}
+    # context = {'orders':orders, 'customer':customers, 'total_orders':total_orders,
+    #            'delivered':delivered, 'pending':pending}
 
-    return render(request, 'crm/dashboard.html', context)
+    # return render(request, 'crm/dashboard.html', context)
+    return render(request, 'crm/intro.html')
 
 def products(request):
     products = Product.objects.all()
@@ -29,8 +30,8 @@ def orders(request):
     orders = Order.objects.all()
 
     total_orders = orders.count()
-    delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
+    delivered = orders.filter(status='Livrée').count()
+    pending = orders.filter(status='En attente').count()
 
     context = {'orders':orders, 'total_orders':total_orders,
                'delivered':delivered, 'pending':pending}

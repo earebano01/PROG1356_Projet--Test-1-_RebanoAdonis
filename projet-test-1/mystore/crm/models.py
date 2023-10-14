@@ -13,25 +13,26 @@ class Customer(models.Model):
 
 class Product(models.Model):
     CATEGORY = (
-        ('Electronic', 'Electronic'),
-        ('Fashion', 'Fashion'),
-        ('Food', 'Food'),
+        ('Électronique', 'Électronique'),
+        ('Mode', 'Mode'),
+        ('Alimentation', 'Alimentation'),
     )
     
     name = models.fields.CharField(max_length=50, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=10, null=True)
-    category = models.fields.CharField(max_length=10, null=True, choices=CATEGORY)
+    category = models.fields.CharField(max_length=15, null=True, choices=CATEGORY)
     description = models.fields.TextField(max_length=200, blank=True, null=True)
     date_created = models.DateField(auto_now_add=True)
+    status = models.BooleanField(null=True)
 
     def __str__(self):
         return self.name
 
 class Order(models.Model):
     STATUS = (
-        ('Pending', 'Pending'),
-        ('Out for delivery', 'Out for delivery'),
-        ('Delivered', 'Delivered'),
+        ('En attente', 'En attente'),
+        ('En cours de livraison', 'En cours de livraison'),
+        ('Livrée', 'Livrée'),
     )
     
     customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)

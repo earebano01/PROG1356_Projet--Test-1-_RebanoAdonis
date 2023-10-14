@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">MyStore (Test-1)</a>
+    <a class="navbar-brand" href="{% url 'home' %}">MyStore (Test-1)</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,13 +9,16 @@
           <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'customer' %}">Customers</a>
+          <a class="nav-link" href="{% url 'customer' %}">Clients</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'product' %}">Products</a>
+          <a class="nav-link" href="{% url 'product' %}">Produits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'orders' %}">Orders</a>
+          <a class="nav-link" href="{% url 'orders' %}">Commandes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/">Admin</a>
         </li>
       </ul>
     </div>
